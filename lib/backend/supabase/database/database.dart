@@ -1,0 +1,32 @@
+export '../../../flutter_flow/lat_lng.dart';
+export 'package:supabase_flutter/supabase_flutter.dart' hide Provider;
+
+export '../supabase.dart';
+export 'row.dart';
+export 'table.dart';
+
+export 'tables/t_medidores.dart';
+export 'tables/geometry_columns.dart';
+export 'tables/t_motivos_cierre.dart';
+export 'tables/vt_superadmin.dart';
+export 'tables/t_tipos_usuario.dart';
+export 'tables/ubicaciones.dart';
+export 'tables/geography_columns.dart';
+export 'tables/t_rutas.dart';
+export 'tables/vt_usuarios_roles.dart';
+export 'tables/t_ordenes.dart';
+export 'tables/temp_carga_csv.dart';
+export 'tables/v_ordenes_por_estado.dart';
+export 'tables/v_supervisiones_detalladas.dart';
+export 'tables/t_fotos.dart';
+export 'tables/t_estados.dart';
+export 'tables/v_clientes_detallado.dart';
+export 'tables/spatial_ref_sys.dart';
+export 'tables/v_ordenes_detalladas.dart';
+export 'tables/vt_agentes.dart';
+export 'tables/t_supervisores.dart';
+export 'tables/t_barrios.dart';
+export 'tables/vt_supervisores.dart';
+export 'tables/t_clientes.dart';
+export 'tables/t_estados_medidor.dart';
+export 'tables/t_usuarios.dart';
