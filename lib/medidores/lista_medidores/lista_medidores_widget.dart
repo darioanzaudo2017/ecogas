@@ -139,8 +139,8 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 10.0, 0.0),
-                          child: FutureBuilder<List<TMedidoresRow>>(
-                            future: TMedidoresTable().queryRows(
+                          child: FutureBuilder<List<VMedidoresConEstadoRow>>(
+                            future: VMedidoresConEstadoTable().queryRows(
                               queryFn: (q) => q,
                             ),
                             builder: (context, snapshot) {
@@ -158,7 +158,8 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                   ),
                                 );
                               }
-                              List<TMedidoresRow> containerTMedidoresRowList =
+                              List<VMedidoresConEstadoRow>
+                                  containerVMedidoresConEstadoRowList =
                                   snapshot.data!;
 
                               return Container(
@@ -198,7 +199,8 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                             size: 32.0,
                                           ),
                                           Text(
-                                            containerTMedidoresRowList.length
+                                            containerVMedidoresConEstadoRowList
+                                                .length
                                                 .toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
@@ -258,193 +260,11 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 0.0, 10.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 8.0,
-                                  color: Color(0x1A000000),
-                                  offset: Offset(
-                                    0.0,
-                                    2.0,
-                                  ),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.check_circle_rounded,
-                                        color: Color(0xFF48BB78),
-                                        size: 32.0,
-                                      ),
-                                      Text(
-                                        '1,089',
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              font: GoogleFonts.interTight(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmall
-                                                        .fontStyle,
-                                              ),
-                                              color: Color(0xFF2D3748),
-                                              fontSize: 28.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    'Medidores Disponibles',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: Color(0xFF718096),
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(height: 8.0)),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 20.0, 0.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 8.0,
-                                  color: Color(0x1A000000),
-                                  offset: Offset(
-                                    0.0,
-                                    2.0,
-                                  ),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(16.0),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(16.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Icon(
-                                        Icons.star,
-                                        color: Color(0xFFB9C32C),
-                                        size: 32.0,
-                                      ),
-                                      Text(
-                                        '1,089',
-                                        style: FlutterFlowTheme.of(context)
-                                            .displaySmall
-                                            .override(
-                                              font: GoogleFonts.interTight(
-                                                fontWeight: FontWeight.bold,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .displaySmall
-                                                        .fontStyle,
-                                              ),
-                                              color: Color(0xFF2D3748),
-                                              fontSize: 28.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.bold,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmall
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                  Text(
-                                    'Medidores Instalados',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: Color(0xFF718096),
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                ].divide(SizedBox(height: 8.0)),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 0.0, 20.0, 0.0),
-                          child: FutureBuilder<List<VClientesDetalladoRow>>(
-                            future: VClientesDetalladoTable().queryRows(
+                          child: FutureBuilder<List<VMedidoresConEstadoRow>>(
+                            future: VMedidoresConEstadoTable().queryRows(
                               queryFn: (q) => q.eqOrNull(
-                                'activo',
-                                false,
+                                'nombre',
+                                'EN STOCK',
                               ),
                             ),
                             builder: (context, snapshot) {
@@ -462,8 +282,256 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                   ),
                                 );
                               }
-                              List<VClientesDetalladoRow>
-                                  containerVClientesDetalladoRowList =
+                              List<VMedidoresConEstadoRow>
+                                  containerVMedidoresConEstadoRowList =
+                                  snapshot.data!;
+
+                              return Container(
+                                width: double.infinity,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 8.0,
+                                      color: Color(0x1A000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.check_circle_rounded,
+                                            color: Color(0xFF48BB78),
+                                            size: 32.0,
+                                          ),
+                                          Text(
+                                            containerVMedidoresConEstadoRowList
+                                                .length
+                                                .toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .displaySmall
+                                                .override(
+                                                  font: GoogleFonts.interTight(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF2D3748),
+                                                  fontSize: 28.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Medidores Disponibles',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color: Color(0xFF718096),
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 8.0)),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 20.0, 0.0),
+                          child: FutureBuilder<List<VMedidoresConEstadoRow>>(
+                            future: VMedidoresConEstadoTable().queryRows(
+                              queryFn: (q) => q.eqOrNull(
+                                'nombre',
+                                'INSTALADO',
+                              ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitChasingDots(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<VMedidoresConEstadoRow>
+                                  containerVMedidoresConEstadoRowList =
+                                  snapshot.data!;
+
+                              return Container(
+                                width: double.infinity,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: 8.0,
+                                      color: Color(0x1A000000),
+                                      offset: Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(16.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.star,
+                                            color: Color(0xFFB9C32C),
+                                            size: 32.0,
+                                          ),
+                                          Text(
+                                            containerVMedidoresConEstadoRowList
+                                                .length
+                                                .toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .displaySmall
+                                                .override(
+                                                  font: GoogleFonts.interTight(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .displaySmall
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF2D3748),
+                                                  fontSize: 28.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .displaySmall
+                                                          .fontStyle,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Medidores Instalados',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.inter(
+                                                fontWeight: FontWeight.w500,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              color: Color(0xFF718096),
+                                              fontSize: 14.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w500,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
+                                      ),
+                                    ].divide(SizedBox(height: 8.0)),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              10.0, 0.0, 20.0, 0.0),
+                          child: FutureBuilder<List<VMedidoresConEstadoRow>>(
+                            future: VMedidoresConEstadoTable().queryRows(
+                              queryFn: (q) => q.eqOrNull(
+                                'nombre',
+                                'DEFECTUOSO',
+                              ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 50.0,
+                                    height: 50.0,
+                                    child: SpinKitChasingDots(
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      size: 50.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              List<VMedidoresConEstadoRow>
+                                  containerVMedidoresConEstadoRowList =
                                   snapshot.data!;
 
                               return Container(
@@ -504,7 +572,9 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                             size: 32.0,
                                           ),
                                           Text(
-                                            '1,089',
+                                            containerVMedidoresConEstadoRowList
+                                                .length
+                                                .toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .displaySmall
                                                 .override(
@@ -605,8 +675,17 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 5.0, 0.0),
                                   child: FFButtonWidget(
-                                    onPressed: () {
-                                      print('Button pressed ...');
+                                    onPressed: () async {
+                                      context.pushNamed(
+                                        CargarMedidorWidget.routeName,
+                                        extra: <String, dynamic>{
+                                          kTransitionInfoKey: TransitionInfo(
+                                            hasTransition: true,
+                                            transitionType:
+                                                PageTransitionType.fade,
+                                          ),
+                                        },
+                                      );
                                     },
                                     text: 'Alta Medidor Unico',
                                     options: FFButtonOptions(
@@ -879,8 +958,8 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                       ].divide(SizedBox(width: 15.0)),
                     ),
                   ),
-                  FutureBuilder<List<TMedidoresRow>>(
-                    future: TMedidoresTable().queryRows(
+                  FutureBuilder<List<VMedidoresConEstadoRow>>(
+                    future: VMedidoresConEstadoTable().queryRows(
                       queryFn: (q) => q,
                     ),
                     builder: (context, snapshot) {
@@ -897,8 +976,8 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                           ),
                         );
                       }
-                      List<TMedidoresRow> containerTMedidoresRowList =
-                          snapshot.data!;
+                      List<VMedidoresConEstadoRow>
+                          containerVMedidoresConEstadoRowList = snapshot.data!;
 
                       return Container(
                         decoration: BoxDecoration(),
@@ -921,10 +1000,11 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                     child: Builder(
                                       builder: (context) {
                                         final listaMedidores =
-                                            containerTMedidoresRowList.toList();
+                                            containerVMedidoresConEstadoRowList
+                                                .toList();
 
                                         return FlutterFlowDataTable<
-                                            TMedidoresRow>(
+                                            VMedidoresConEstadoRow>(
                                           controller: _model
                                               .paginatedDataTableController,
                                           data: listaMedidores,
@@ -1283,7 +1363,10 @@ class _ListaMedidoresWidgetState extends State<ListaMedidoresWidget> {
                                                 alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: Text(
-                                                  '',
+                                                  valueOrDefault<String>(
+                                                    listaMedidoresItem.nombre,
+                                                    'Estado Medidor',
+                                                  ),
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium

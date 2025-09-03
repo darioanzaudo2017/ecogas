@@ -302,4 +302,10 @@ class VOrdenesDetalladasRow extends SupabaseDataRow {
   String? get ordenVerificada => getField<String>('orden_verificada');
   set ordenVerificada(String? value) =>
       setField<String>('orden_verificada', value);
+
+  String? get fimardigital => getField<String>('fimardigital');
+  set fimardigital(String? value) => setField<String>('fimardigital', value);
+
+  DateTime? get fechahora => getField<DateTime>('fechahora');
+  set fechahora(DateTime? value) => setField<DateTime>('fechahora', value);
 }

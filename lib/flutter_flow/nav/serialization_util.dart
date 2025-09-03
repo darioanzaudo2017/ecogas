@@ -262,6 +262,8 @@ dynamic deserializeParam<T>(
             return VtSupervisoresRow(data);
           case TClientesRow:
             return TClientesRow(data);
+          case VMedidoresConEstadoRow:
+            return VMedidoresConEstadoRow(data);
           case TEstadosMedidorRow:
             return TEstadosMedidorRow(data);
           case TUsuariosRow:

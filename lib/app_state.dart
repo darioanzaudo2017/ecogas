@@ -86,4 +86,10 @@ class FFAppState extends ChangeNotifier {
   set iduser(String value) {
     _iduser = value;
   }
+
+  String _signatureurl = '';
+  String get signatureurl => _signatureurl;
+  set signatureurl(String value) {
+    _signatureurl = value;
+  }
 }

@@ -554,6 +554,173 @@ class _ListaClientesWidgetState extends State<ListaClientesWidget> {
                       ),
                     ],
                   ),
+                  Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      FFButtonWidget(
+                        onPressed: () async {
+                          _model.filtrobusqueda = 'calle';
+                          safeSetState(() {});
+                        },
+                        text: 'Calle',
+                        options: FFButtonOptions(
+                          width: 150.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: _model.filtrobusqueda == 'calle'
+                              ? FlutterFlowTheme.of(context).secondary
+                              : FlutterFlowTheme.of(context).secondaryText,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation:
+                              _model.filtrobusqueda == 'calle' ? 5.0 : 0.0,
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          _model.filtrobusqueda = 'cuenta_contrato';
+                          safeSetState(() {});
+                        },
+                        text: 'Cuenta contrato',
+                        options: FFButtonOptions(
+                          width: 150.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: _model.filtrobusqueda == 'cuenta_contrato'
+                              ? FlutterFlowTheme.of(context).secondary
+                              : FlutterFlowTheme.of(context).secondaryText,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation: _model.filtrobusqueda == 'cuenta_contrato'
+                              ? 5.0
+                              : 0.0,
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          _model.filtrobusqueda = 'medidor';
+                          safeSetState(() {});
+                        },
+                        text: 'Medidor',
+                        options: FFButtonOptions(
+                          width: 150.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: _model.filtrobusqueda == 'medidor'
+                              ? FlutterFlowTheme.of(context).secondary
+                              : FlutterFlowTheme.of(context).secondaryText,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation:
+                              _model.filtrobusqueda == 'medidor' ? 5.0 : 0.0,
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          _model.filtrobusqueda = 'orden';
+                          safeSetState(() {});
+                        },
+                        text: 'Num Orden',
+                        options: FFButtonOptions(
+                          width: 150.0,
+                          height: 40.0,
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 0.0),
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 0.0),
+                          color: _model.filtrobusqueda == 'orden'
+                              ? FlutterFlowTheme.of(context).secondary
+                              : FlutterFlowTheme.of(context).secondaryText,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation:
+                              _model.filtrobusqueda == 'orden' ? 5.0 : 0.0,
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
+                      ),
+                    ].divide(SizedBox(width: 5.0)).around(SizedBox(width: 5.0)),
+                  ),
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -909,6 +1076,7 @@ class _ListaClientesWidgetState extends State<ListaClientesWidget> {
                                 int.tryParse(_model.textController3.text),
                                 10000,
                               ),
+                              columna: _model.filtrobusqueda,
                             );
 
                             if ((_model.apiResultamtclientes?.succeeded ??

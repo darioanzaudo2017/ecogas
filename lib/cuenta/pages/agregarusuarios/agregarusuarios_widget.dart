@@ -1185,6 +1185,7 @@ class _AgregarusuariosWidgetState extends State<AgregarusuariosWidget> {
                                 : (_model.rolUsuarioValue == 'Agente'
                                     ? 'a4e9a5ac-2490-410f-99e2-dd2b70fd22e3'
                                     : 'eaf6da4a-8224-4726-91a0-c0726376cb4c'),
+                            'asignadosupervisor': false,
                           });
                           Navigator.pop(context, true);
 

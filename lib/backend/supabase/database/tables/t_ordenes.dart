@@ -129,4 +129,10 @@ class TOrdenesRow extends SupabaseDataRow {
       getField<String>('observacion_verificacion');
   set observacionVerificacion(String? value) =>
       setField<String>('observacion_verificacion', value);
+
+  String? get fimardigital => getField<String>('fimardigital');
+  set fimardigital(String? value) => setField<String>('fimardigital', value);
+
+  DateTime? get fechahora => getField<DateTime>('fechahora');
+  set fechahora(DateTime? value) => setField<DateTime>('fechahora', value);
 }

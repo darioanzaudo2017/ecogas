@@ -23,7 +23,7 @@ class ListaMedidoresModel extends FlutterFlowModel<ListaMedidoresWidget> {
   ApiCallResponse? apiResultamtclientes;
   // State field(s) for PaginatedDataTable widget.
   final paginatedDataTableController =
-      FlutterFlowDataTableController<TMedidoresRow>();
+      FlutterFlowDataTableController<VMedidoresConEstadoRow>();
 
   @override
   void initState(BuildContext context) {}

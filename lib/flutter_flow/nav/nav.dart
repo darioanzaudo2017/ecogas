@@ -202,11 +202,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: DetalleMedidorWidget.routePath,
           requireAuth: true,
           builder: (context, params) => DetalleMedidorWidget(
-            idMedidor: params.getParam<TMedidoresRow>(
+            idMedidor: params.getParam<VMedidoresConEstadoRow>(
               'idMedidor',
               ParamType.SupabaseRow,
             ),
           ),
+        ),
+        FFRoute(
+          name: CargarMedidorWidget.routeName,
+          path: CargarMedidorWidget.routePath,
+          builder: (context, params) => CargarMedidorWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class ListaClientesModel extends FlutterFlowModel<ListaClientesWidget> {
   ///  Local state fields for this page.
 
-  String? buscarCliente;
+  String filtrobusqueda = 'calle';
 
   ///  State fields for stateful widgets in this page.
 

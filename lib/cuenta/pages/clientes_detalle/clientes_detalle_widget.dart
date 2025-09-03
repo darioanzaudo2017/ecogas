@@ -3531,6 +3531,66 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                   ),
                                                 ),
                                               ),
+                                              Container(
+                                                width: 564.0,
+                                                height: 265.05,
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                ),
+                                                child: InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    await Navigator.push(
+                                                      context,
+                                                      PageTransition(
+                                                        type: PageTransitionType
+                                                            .fade,
+                                                        child:
+                                                            FlutterFlowExpandedImageView(
+                                                          image: Image.network(
+                                                            containerVOrdenesDetalladasRow
+                                                                .fimardigital!,
+                                                            fit: BoxFit.contain,
+                                                          ),
+                                                          allowRotation: false,
+                                                          tag: containerVOrdenesDetalladasRow
+                                                              .fimardigital!,
+                                                          useHeroAnimation:
+                                                              true,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                  child: Hero(
+                                                    tag:
+                                                        containerVOrdenesDetalladasRow!
+                                                            .fimardigital!,
+                                                    transitionOnUserGestures:
+                                                        true,
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                      child: Image.network(
+                                                        containerVOrdenesDetalladasRow
+                                                            .fimardigital!,
+                                                        width: 200.0,
+                                                        height: 200.0,
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
                                               FutureBuilder<List<TFotosRow>>(
                                                 future: TFotosTable().queryRows(
                                                   queryFn: (q) => q.eqOrNull(
@@ -3630,81 +3690,75 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                     containerTFotosRowList
                                                                         .toList();
 
-                                                                return Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: List.generate(
-                                                                      listafotosorden
-                                                                          .length,
-                                                                      (listafotosordenIndex) {
-                                                                    final listafotosordenItem =
-                                                                        listafotosorden[
-                                                                            listafotosordenIndex];
-                                                                    return InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        await Navigator
-                                                                            .push(
-                                                                          context,
-                                                                          PageTransition(
-                                                                            type:
-                                                                                PageTransitionType.fade,
-                                                                            child:
-                                                                                FlutterFlowExpandedImageView(
-                                                                              image: Image.network(
-                                                                                listafotosordenItem.urlFoto!,
-                                                                                fit: BoxFit.contain,
+                                                                return SingleChildScrollView(
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: List.generate(
+                                                                        listafotosorden
+                                                                            .length,
+                                                                        (listafotosordenIndex) {
+                                                                      final listafotosordenItem =
+                                                                          listafotosorden[
+                                                                              listafotosordenIndex];
+                                                                      return InkWell(
+                                                                        splashColor:
+                                                                            Colors.transparent,
+                                                                        focusColor:
+                                                                            Colors.transparent,
+                                                                        hoverColor:
+                                                                            Colors.transparent,
+                                                                        highlightColor:
+                                                                            Colors.transparent,
+                                                                        onTap:
+                                                                            () async {
+                                                                          await Navigator
+                                                                              .push(
+                                                                            context,
+                                                                            PageTransition(
+                                                                              type: PageTransitionType.fade,
+                                                                              child: FlutterFlowExpandedImageView(
+                                                                                image: Image.network(
+                                                                                  listafotosordenItem.urlFoto!,
+                                                                                  fit: BoxFit.contain,
+                                                                                ),
+                                                                                allowRotation: false,
+                                                                                tag: listafotosordenItem.urlFoto!,
+                                                                                useHeroAnimation: true,
                                                                               ),
-                                                                              allowRotation: false,
-                                                                              tag: listafotosordenItem.urlFoto!,
-                                                                              useHeroAnimation: true,
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                        child:
+                                                                            Hero(
+                                                                          tag: listafotosordenItem
+                                                                              .urlFoto!,
+                                                                          transitionOnUserGestures:
+                                                                              true,
+                                                                          child:
+                                                                              ClipRRect(
+                                                                            borderRadius:
+                                                                                BorderRadius.circular(8.0),
+                                                                            child:
+                                                                                Image.network(
+                                                                              listafotosordenItem.urlFoto!,
+                                                                              width: 200.0,
+                                                                              height: 200.0,
+                                                                              fit: BoxFit.cover,
                                                                             ),
                                                                           ),
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          Hero(
-                                                                        tag: listafotosordenItem
-                                                                            .urlFoto!,
-                                                                        transitionOnUserGestures:
-                                                                            true,
-                                                                        child:
-                                                                            ClipRRect(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          child:
-                                                                              Image.network(
-                                                                            listafotosordenItem.urlFoto!,
-                                                                            width:
-                                                                                200.0,
-                                                                            height:
-                                                                                200.0,
-                                                                            fit:
-                                                                                BoxFit.cover,
-                                                                          ),
                                                                         ),
-                                                                      ),
-                                                                    );
-                                                                  }).divide(
-                                                                      SizedBox(
-                                                                          width:
-                                                                              10.0)),
+                                                                      );
+                                                                    }).divide(SizedBox(
+                                                                        width:
+                                                                            10.0)),
+                                                                  ),
                                                                 );
                                                               },
                                                             ),
@@ -3793,7 +3847,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                               child: Padding(
                                                                                 padding: MediaQuery.viewInsetsOf(context),
                                                                                 child: ObservacionesVerificarWidget(
-                                                                                  idOrden: containerVOrdenesDetalladasRow!,
+                                                                                  idOrden: containerVOrdenesDetalladasRow,
                                                                                 ),
                                                                               ),
                                                                             );
@@ -3902,7 +3956,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                         valueOrDefault<
                                                                             String>(
                                                                           containerVOrdenesDetalladasRow
-                                                                              ?.fotosVerificadas,
+                                                                              .fotosVerificadas,
                                                                           'Ns/Nc',
                                                                         )
                                                                       ],
@@ -4049,7 +4103,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.clienteMedidor,
+                                                                            containerVOrdenesDetalladasRow.clienteMedidor,
                                                                             'Sin Dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4102,7 +4156,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.clienteLectura?.toString(),
+                                                                            containerVOrdenesDetalladasRow.clienteLectura?.toString(),
                                                                             'Sin Dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4165,7 +4219,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.medidorNuevo,
+                                                                            containerVOrdenesDetalladasRow.medidorNuevo,
                                                                             'Sin dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4218,7 +4272,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.lecturaNueva?.toString(),
+                                                                            containerVOrdenesDetalladasRow.lecturaNueva?.toString(),
                                                                             'Sin dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4283,7 +4337,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                               String>(
                                                                             dateTimeFormat(
                                                                               "yMd",
-                                                                              containerVOrdenesDetalladasRow?.fechaPrimeraVisita,
+                                                                              containerVOrdenesDetalladasRow.fechaPrimeraVisita,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                             'Sin Dato',
@@ -4340,7 +4394,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                               String>(
                                                                             dateTimeFormat(
                                                                               "Hm",
-                                                                              containerVOrdenesDetalladasRow?.fechaPrimeraVisita,
+                                                                              containerVOrdenesDetalladasRow.fechahora,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                             'Sin Dato',
@@ -4407,7 +4461,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                               String>(
                                                                             dateTimeFormat(
                                                                               "d/M/y",
-                                                                              containerVOrdenesDetalladasRow?.fechaPrimeraVisita,
+                                                                              containerVOrdenesDetalladasRow.fechaPrimeraVisita,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                             'Sin dato',
@@ -4464,7 +4518,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                               String>(
                                                                             dateTimeFormat(
                                                                               "Hm",
-                                                                              containerVOrdenesDetalladasRow?.fechaPrimeraVisita,
+                                                                              containerVOrdenesDetalladasRow.fechahora,
                                                                               locale: FFLocalizations.of(context).languageCode,
                                                                             ),
                                                                             'Sin Dato',
@@ -4578,7 +4632,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.clienteVerificarCaudal,
+                                                                            containerVOrdenesDetalladasRow.clienteVerificarCaudal,
                                                                             'Sin Dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4641,7 +4695,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.clienteCaudalNuevo,
+                                                                            containerVOrdenesDetalladasRow.clienteCaudalNuevo,
                                                                             'Sin Dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4753,7 +4807,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                             Text(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerVOrdenesDetalladasRow?.clientePuntoSuministro,
+                                                                            containerVOrdenesDetalladasRow.clientePuntoSuministro,
                                                                             'Sin Dato',
                                                                           ),
                                                                           style: FlutterFlowTheme.of(context)
@@ -4815,10 +4869,10 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                         child:
                                                                             Text(
                                                                           '${valueOrDefault<String>(
-                                                                            containerVOrdenesDetalladasRow?.agenteNombre,
+                                                                            containerVOrdenesDetalladasRow.agenteNombre,
                                                                             'Sin dato',
                                                                           )} ${valueOrDefault<String>(
-                                                                            containerVOrdenesDetalladasRow?.agenteApellido,
+                                                                            containerVOrdenesDetalladasRow.agenteApellido,
                                                                             'Sin dato',
                                                                           )}',
                                                                           style: FlutterFlowTheme.of(context)
@@ -4870,10 +4924,10 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                         child:
                                                                             Text(
                                                                           '${valueOrDefault<String>(
-                                                                            containerVOrdenesDetalladasRow?.supervisorNombre,
+                                                                            containerVOrdenesDetalladasRow.supervisorNombre,
                                                                             'Sin dato',
                                                                           )} ${valueOrDefault<String>(
-                                                                            containerVOrdenesDetalladasRow?.supervisorApellido,
+                                                                            containerVOrdenesDetalladasRow.supervisorApellido,
                                                                             'Sin dato',
                                                                           )}',
                                                                           style: FlutterFlowTheme.of(context)
@@ -4975,7 +5029,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                                   child: Padding(
                                                                                     padding: MediaQuery.viewInsetsOf(context),
                                                                                     child: ObservacionesVerificarWidget(
-                                                                                      idOrden: containerVOrdenesDetalladasRow!,
+                                                                                      idOrden: containerVOrdenesDetalladasRow,
                                                                                     ),
                                                                                   ),
                                                                                 );
@@ -5088,7 +5142,7 @@ class _ClientesDetalleWidgetState extends State<ClientesDetalleWidget>
                                                                                 FormFieldController<List<String>>(
                                                                           [
                                                                             valueOrDefault<String>(
-                                                                              containerVOrdenesDetalladasRow?.ordenVerificada,
+                                                                              containerVOrdenesDetalladasRow.ordenVerificada,
                                                                               'Ns/Nc',
                                                                             )
                                                                           ],

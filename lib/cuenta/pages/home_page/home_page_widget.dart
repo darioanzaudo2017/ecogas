@@ -1297,6 +1297,247 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                             ),
                                           ),
                                         ),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                final selectedFiles =
+                                                    await selectFiles(
+                                                  storageFolderPath: '',
+                                                  multiFile: false,
+                                                );
+                                                if (selectedFiles != null) {
+                                                  safeSetState(() => _model
+                                                          .isDataUploading_uploadDataA80 =
+                                                      true);
+                                                  var selectedUploadedFiles =
+                                                      <FFUploadedFile>[];
+
+                                                  var downloadUrls = <String>[];
+                                                  try {
+                                                    selectedUploadedFiles =
+                                                        selectedFiles
+                                                            .map((m) =>
+                                                                FFUploadedFile(
+                                                                  name: m
+                                                                      .storagePath
+                                                                      .split(
+                                                                          '/')
+                                                                      .last,
+                                                                  bytes:
+                                                                      m.bytes,
+                                                                ))
+                                                            .toList();
+
+                                                    downloadUrls =
+                                                        await uploadSupabaseStorageFiles(
+                                                      bucketName: 'csv-uploads',
+                                                      selectedFiles:
+                                                          selectedFiles,
+                                                    );
+                                                  } finally {
+                                                    _model.isDataUploading_uploadDataA80 =
+                                                        false;
+                                                  }
+                                                  if (selectedUploadedFiles
+                                                              .length ==
+                                                          selectedFiles
+                                                              .length &&
+                                                      downloadUrls.length ==
+                                                          selectedFiles
+                                                              .length) {
+                                                    safeSetState(() {
+                                                      _model.uploadedLocalFile_uploadDataA80 =
+                                                          selectedUploadedFiles
+                                                              .first;
+                                                      _model.uploadedFileUrl_uploadDataA80 =
+                                                          downloadUrls.first;
+                                                    });
+                                                  } else {
+                                                    safeSetState(() {});
+                                                    return;
+                                                  }
+                                                }
+
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: Text('1'),
+                                                      content: Text(_model
+                                                          .uploadedFileUrl_uploadDataA80),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                                _model.apiResultwp7 =
+                                                    await CargarCSVloteclientesCall
+                                                        .call(
+                                                  url: _model
+                                                      .uploadedFileUrl_uploadDataA80,
+                                                );
+
+                                                await showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (alertDialogContext) {
+                                                    return AlertDialog(
+                                                      title: Text('2'),
+                                                      content: Text((_model
+                                                                  .apiResultwp7
+                                                                  ?.statusCode ??
+                                                              200)
+                                                          .toString()),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  alertDialogContext),
+                                                          child: Text('Ok'),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                                if ((_model.apiResultwp7
+                                                        ?.succeeded ??
+                                                    true)) {
+                                                  await showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (alertDialogContext) {
+                                                      return AlertDialog(
+                                                        title: Text(
+                                                            'Se cargo correctamente!'),
+                                                        actions: [
+                                                          TextButton(
+                                                            onPressed: () =>
+                                                                Navigator.pop(
+                                                                    alertDialogContext),
+                                                            child: Text('Ok'),
+                                                          ),
+                                                        ],
+                                                      );
+                                                    },
+                                                  );
+                                                }
+
+                                                safeSetState(() {});
+                                              },
+                                              text: 'Cargar Clientes por Lote',
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFFEF39E1),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .interTight(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                await launchURL(
+                                                    'https://qtfivfifskeagrfsgyav.supabase.co/storage/v1/object/public/template_carga_clientelote/csv_carga_lote_cliente_formato.xlsx');
+                                              },
+                                              text: 'Descargar formmato csv',
+                                              icon: Icon(
+                                                Icons.download,
+                                                size: 15.0,
+                                              ),
+                                              options: FFButtonOptions(
+                                                height: 40.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        16.0, 0.0, 16.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleSmall
+                                                        .override(
+                                                          font: GoogleFonts
+                                                              .interTight(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
+                                                          color: Colors.white,
+                                                          letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
+                                                        ),
+                                                elevation: 0.0,
+                                                borderRadius:
+                                                    BorderRadius.circular(8.0),
+                                              ),
+                                            ),
+                                          ].divide(SizedBox(height: 5.0)),
+                                        ),
                                         Padding(
                                           padding: EdgeInsets.all(5.0),
                                           child: FFButtonWidget(
@@ -1462,158 +1703,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           ),
                                         ),
                                       ],
-                                    ),
-                                  ),
-                                  FFButtonWidget(
-                                    onPressed: () async {
-                                      final selectedFiles = await selectFiles(
-                                        storageFolderPath: '',
-                                        multiFile: false,
-                                      );
-                                      if (selectedFiles != null) {
-                                        safeSetState(() => _model
-                                                .isDataUploading_uploadDataA80 =
-                                            true);
-                                        var selectedUploadedFiles =
-                                            <FFUploadedFile>[];
-
-                                        var downloadUrls = <String>[];
-                                        try {
-                                          selectedUploadedFiles = selectedFiles
-                                              .map((m) => FFUploadedFile(
-                                                    name: m.storagePath
-                                                        .split('/')
-                                                        .last,
-                                                    bytes: m.bytes,
-                                                  ))
-                                              .toList();
-
-                                          downloadUrls =
-                                              await uploadSupabaseStorageFiles(
-                                            bucketName: 'csv-uploads',
-                                            selectedFiles: selectedFiles,
-                                          );
-                                        } finally {
-                                          _model.isDataUploading_uploadDataA80 =
-                                              false;
-                                        }
-                                        if (selectedUploadedFiles.length ==
-                                                selectedFiles.length &&
-                                            downloadUrls.length ==
-                                                selectedFiles.length) {
-                                          safeSetState(() {
-                                            _model.uploadedLocalFile_uploadDataA80 =
-                                                selectedUploadedFiles.first;
-                                            _model.uploadedFileUrl_uploadDataA80 =
-                                                downloadUrls.first;
-                                          });
-                                        } else {
-                                          safeSetState(() {});
-                                          return;
-                                        }
-                                      }
-
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('1'),
-                                            content: Text(_model
-                                                .uploadedFileUrl_uploadDataA80),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      _model.apiResultwp7 =
-                                          await CargarCSVloteclientesCall.call(
-                                        url: _model
-                                            .uploadedFileUrl_uploadDataA80,
-                                      );
-
-                                      await showDialog(
-                                        context: context,
-                                        builder: (alertDialogContext) {
-                                          return AlertDialog(
-                                            title: Text('2'),
-                                            content: Text((_model.apiResultwp7
-                                                        ?.statusCode ??
-                                                    200)
-                                                .toString()),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.pop(
-                                                    alertDialogContext),
-                                                child: Text('Ok'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                      if ((_model.apiResultwp7?.succeeded ??
-                                          true)) {
-                                        await showDialog(
-                                          context: context,
-                                          builder: (alertDialogContext) {
-                                            return AlertDialog(
-                                              title: Text(
-                                                  'Se cargo correctamente!'),
-                                              actions: [
-                                                TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          alertDialogContext),
-                                                  child: Text('Ok'),
-                                                ),
-                                              ],
-                                            );
-                                          },
-                                        );
-                                      }
-
-                                      safeSetState(() {});
-                                    },
-                                    text: 'Subir lote de clientes',
-                                    options: FFButtonOptions(
-                                      height: 40.0,
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 0.0, 16.0, 0.0),
-                                      iconPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              0.0, 0.0, 0.0, 0.0),
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
-                                      textStyle: FlutterFlowTheme.of(context)
-                                          .titleSmall
-                                          .override(
-                                            font: GoogleFonts.interTight(
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .fontStyle,
-                                            ),
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleSmall
-                                                    .fontStyle,
-                                          ),
-                                      elevation: 0.0,
-                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
                                   ),
                                 ],

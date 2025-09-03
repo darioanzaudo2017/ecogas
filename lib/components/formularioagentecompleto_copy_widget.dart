@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -2554,6 +2555,50 @@ class _FormularioagentecompletoCopyWidgetState
                             ),
                           ),
                         ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Container(
+                          height: 400.0,
+                          decoration: BoxDecoration(),
+                          child: Container(
+                            width: 400.0,
+                            height: 300.0,
+                            child:
+                                custom_widgets.SignaturePadUploadSupabaseCopy(
+                              width: 400.0,
+                              height: 300.0,
+                              supabaseUrl:
+                                  'https://qtfivfifskeagrfsgyav.supabase.co',
+                              supabaseApiKey:
+                                  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF0Zml2Zmlmc2tlYWdyZnNneWF2Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzkwMjc0MCwiZXhwIjoyMDY5NDc4NzQwfQ.ggJe5ZOsm7JqxFtJQwRpvvkFHnikwp7hSTZYQ-3DixI',
+                              fileName: 'prueba 2',
+                              onUploaded: (url) async {
+                                await TOrdenesTable().update(
+                                  data: {
+                                    'fimardigital': valueOrDefault<String>(
+                                      url,
+                                      'no url',
+                                    ),
+                                  },
+                                  matchingRows: (rows) => rows.eqOrNull(
+                                    'id_orden',
+                                    widget.idorden,
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Container(
+                          width: 459.8,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).alternate,
+                          ),
+                        ),
+                      ),
                       Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -2580,6 +2625,8 @@ class _FormularioagentecompletoCopyWidgetState
                                       'cliente_accede_cambio': 'Ns/Nc',
                                       'medidor_mal_estado': 'Ns/Nc',
                                       'posee_reja_soldadura': 'Ns/Nc',
+                                      'fechahora': supaSerialize<DateTime>(
+                                          getCurrentTimestamp),
                                     },
                                     matchingRows: (rows) => rows.eqOrNull(
                                       'id_orden',
@@ -2619,6 +2666,8 @@ class _FormularioagentecompletoCopyWidgetState
                                         'motivo_de_cierre': 1,
                                         'latcambio': _model.lat,
                                         'longcambio': _model.long,
+                                        'fechahora': supaSerialize<DateTime>(
+                                            getCurrentTimestamp),
                                       },
                                       matchingRows: (rows) => rows.eqOrNull(
                                         'id_orden',
@@ -2738,6 +2787,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -2871,6 +2922,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3004,6 +3057,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3137,6 +3192,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3271,6 +3328,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3406,6 +3465,8 @@ class _FormularioagentecompletoCopyWidgetState
                                     'existe_litracion': 'Ns/Nc',
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3556,6 +3617,8 @@ class _FormularioagentecompletoCopyWidgetState
                                         _model.choiceChipsreguladorValue,
                                     'latcambio': _model.lat,
                                     'longcambio': _model.long,
+                                    'fechahora': supaSerialize<DateTime>(
+                                        getCurrentTimestamp),
                                   },
                                   matchingRows: (rows) => rows.eqOrNull(
                                     'id_orden',
@@ -3593,6 +3656,8 @@ class _FormularioagentecompletoCopyWidgetState
                                   },
                                 ).then((value) => safeSetState(() {}));
 
+                                FFAppState().signatureurl = '';
+                                safeSetState(() {});
                                 Navigator.pop(context);
                               },
                               text: 'Guardar Procedimiento completo',
@@ -3635,6 +3700,50 @@ class _FormularioagentecompletoCopyWidgetState
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                             ),
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                Navigator.pop(context);
+                              },
+                              text: 'Cerrar sin guardar',
+                              options: FFButtonOptions(
+                                height: 40.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 16.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                elevation: 0.0,
+                                borderSide: BorderSide(
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                ),
+                                borderRadius: BorderRadius.circular(20.0),
+                              ),
+                            ),
+                          ),
                         ].divide(SizedBox(height: 12.0)),
                       ),
                     ].divide(SizedBox(height: 20.0)),

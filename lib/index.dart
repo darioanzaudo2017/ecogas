@@ -27,3 +27,5 @@ export '/medidores/lista_medidores/lista_medidores_widget.dart'
     show ListaMedidoresWidget;
 export '/medidores/detalle_medidor/detalle_medidor_widget.dart'
     show DetalleMedidorWidget;
+export '/medidores/cargar_medidor/cargar_medidor_widget.dart'
+    show CargarMedidorWidget;

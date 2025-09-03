@@ -28,5 +28,6 @@ export 'tables/t_supervisores.dart';
 export 'tables/t_barrios.dart';
 export 'tables/vt_supervisores.dart';
 export 'tables/t_clientes.dart';
+export 'tables/v_medidores_con_estado.dart';
 export 'tables/t_estados_medidor.dart';
 export 'tables/t_usuarios.dart';
